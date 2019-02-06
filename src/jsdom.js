@@ -181,7 +181,26 @@ When a user selects a color, create an alert with a message similar to:
 In this example, green is the new value and blue is the old value.
 Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
 */
-
+function favoriteColor(){
+    const buttons = document.getElementsByName('favoriteColor')
+    let prevColor = 'white'
+    
+    for (const key of buttons) {
+        
+        key.addEventListener('change', () => {
+            alert(`So you like ${key.value} more than ${prevColor} now?`)
+            prevColor = key.value;
+           
+            for (const key2 of buttons) {
+                //if we could change radio buttons, this would do it
+                key2.style.color = key.value
+                
+            }
+        })
+        
+    }
+}
+favoriteColor();
 /*
 9. Show/Hide Event
 NOTE: Write unobtrusive Javascript
